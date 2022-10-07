@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <h1 class="text-center mt-5 mb-5">Listado de Usuarios</h1>
+    </div>
+
+    <div class="container">
+        <div class="row row-col-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2">
+            <div class="col-md6 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="text-center">Alta de Usuarios</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="/usuarios" method="post">
+                            <label>Nombre y Apellidos:</label>
+                            <input type="text" class="form-control" name="name" required>
+                            <label>DNI:</label>
+                            <input type="text" class="form-control" name="dni" required>
+                            <label>Correo:</label>
+                            <input type="email" list="listatiempo" class="form-control mb-2" name="correo" step="6000" required> 
+<!-- 
+                            <datalist id="listatiempo">
+                                <option value="09:00"></option>
+                                <option value="10:00"></option>
+                                <option value="11:00"></option>
+                                <option value="12:00"></option>
+                                <option value="15:00"></option>
+                                <option value="16:00"></option>
+                                <option value="17:00"></option>
+                                <option value="18:00"></option>
+                            </datalist>
+-->
+                            <label>Telefono:</label>
+                            <input type="text" class="form-control mb-2" name="telefono" required>
+                            <button class="btn btn-primary" type="submit">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="text-center">
+                            Usuarios
+                        </h5>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <div class="row row-col-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-3">
+                                    {% for usuario in usuarios %}
+                                        <div class="col">
+                                            <li class="list-group-item mb-3">
+                                                <form action="/edit/{{usuario.name}}" method="post">
+                                                    <small>Apellidos y Nombres:</small>
+                                                    <input type="text" class="form-control" value="{{usuario.name}}" name="name">
+                                                    <small>DNI:</small>
+                                                    <input type="text" class="form-control" value="{{usuario.dni}}" name="apellido">
+                                                    <small>Correo:</small>
+                                                    <input type="email" class="form-control mb-2" value="{{usuario.correo}}" name="hora" disabled>
+                                                    <small>Telefono:</small>
+                                                    <input type="text" class="form-control mb-2" value="{{usuario.telefono}}" name="fecha" disabled>
+                                                    <button class="btn btn-primary btn-sm" type="submit">Editar</button>
+                                                    <a href="{{ url_for('delete',usuario_name=usuario.name)}}" class="btn btn-danger btn-sm">Eliminar</a>
+                                                </form>
+                                            </li>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
