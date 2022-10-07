@@ -64,11 +64,11 @@
                                                     <small>Apellidos y Nombres:</small>
                                                     <input type="text" class="form-control" value="{{usuario.name}}" name="name">
                                                     <small>DNI:</small>
-                                                    <input type="text" class="form-control" value="{{usuario.dni}}" name="apellido">
+                                                    <input type="text" class="form-control" value="{{usuario.dni}}" name="dni">
                                                     <small>Correo:</small>
-                                                    <input type="email" class="form-control mb-2" value="{{usuario.correo}}" name="hora" disabled>
+                                                    <input type="email" class="form-control mb-2" value="{{usuario.correo}}" name="correo" >
                                                     <small>Telefono:</small>
-                                                    <input type="text" class="form-control mb-2" value="{{usuario.telefono}}" name="fecha" disabled>
+                                                    <input type="text" class="form-control mb-2" value="{{usuario.telefono}}" name="telefono">
                                                     <button class="btn btn-primary btn-sm" type="submit">Editar</button>
                                                     <a href="{{ url_for('delete',usuario_name=usuario.name)}}" class="btn btn-danger btn-sm">Eliminar</a>
                                                 </form>

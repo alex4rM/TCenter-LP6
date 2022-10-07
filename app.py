@@ -68,10 +68,12 @@ def edit(usuario_name):
     else:
         return NotFound()
 
-
+#ReservarCitas
 @app.route('/reservaCita')
 def reservaCita():
  return render_template('crearTruno.html')
+
+
 
 @app.errorhandler(404)
 def NotFound(error=None):
