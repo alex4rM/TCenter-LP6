@@ -31,7 +31,7 @@ def addUsuario():
             'correo':correo,
             'telefono':telefono
         })
-        return redirect(url_for('home'))
+        return redirect(url_for('reservaCita'))
     else:
         return NotFound()
 
@@ -69,6 +69,9 @@ def edit(usuario_name):
         return NotFound()
 
 
+@app.route('/reservaCita')
+def reservaCita():
+ return render_template('crearTruno.html')
 
 @app.errorhandler(404)
 def NotFound(error=None):
