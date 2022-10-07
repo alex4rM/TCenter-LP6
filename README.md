@@ -1,6 +1,9 @@
 **Requisitos:**
-  Python
-  Flask
-  Pymongo(MongoDB)
+
+  >Python.
+  
+  >Flask.
+  
+  >Pymongo(MongoDB).
   
   
