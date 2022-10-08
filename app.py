@@ -9,9 +9,10 @@ app = Flask(__name__)
 #Rutas de la aplicacion
 @app.route('/')
 def home():
-    usuarios = db['usuarios']
-    usuariosRecividos = usuarios.find()
-    return render_template('index.html', usuarios = usuariosRecividos)
+    #usuarios = db['usuarios']
+    #usuariosRecividos = usuarios.find()
+    #return render_template('index.html', usuarios = usuariosRecividos)
+    return render_template('index.html')
 
 #Metodo POST
 @app.route('/usuarios',methods=["post"])
